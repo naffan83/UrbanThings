@@ -13,9 +13,6 @@
 		8129099021BFE70500D140D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8129098F21BFE70500D140D1 /* Assets.xcassets */; };
 		8129099321BFE70500D140D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8129099121BFE70500D140D1 /* LaunchScreen.storyboard */; };
 		8129099E21BFE70500D140D1 /* Lift_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8129099D21BFE70500D140D1 /* Lift_ChallengeTests.swift */; };
-		812909A921BFE7D200D140D1 /* Lift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812909A821BFE7D200D140D1 /* Lift.swift */; };
-		812909AB21BFE7DD00D140D1 /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812909AA21BFE7DD00D140D1 /* Passenger.swift */; };
-		812909AD21BFE8A200D140D1 /* LiftSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812909AC21BFE8A200D140D1 /* LiftSimulator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +36,6 @@
 		8129099921BFE70500D140D1 /* Lift ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lift ChallengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8129099D21BFE70500D140D1 /* Lift_ChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lift_ChallengeTests.swift; sourceTree = "<group>"; };
 		8129099F21BFE70500D140D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		812909A821BFE7D200D140D1 /* Lift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lift.swift; sourceTree = "<group>"; };
-		812909AA21BFE7DD00D140D1 /* Passenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passenger.swift; sourceTree = "<group>"; };
-		812909AC21BFE8A200D140D1 /* LiftSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftSimulator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +83,6 @@
 				8129098F21BFE70500D140D1 /* Assets.xcassets */,
 				8129099121BFE70500D140D1 /* LaunchScreen.storyboard */,
 				8129099421BFE70500D140D1 /* Info.plist */,
-				812909AC21BFE8A200D140D1 /* LiftSimulator.swift */,
-				812909A821BFE7D200D140D1 /* Lift.swift */,
-				812909AA21BFE7DD00D140D1 /* Passenger.swift */,
 			);
 			path = "Lift Challenge";
 			sourceTree = "<group>";
@@ -206,10 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				812909AD21BFE8A200D140D1 /* LiftSimulator.swift in Sources */,
-				812909A921BFE7D200D140D1 /* Lift.swift in Sources */,
 				8129098B21BFE70300D140D1 /* ViewController.swift in Sources */,
-				812909AB21BFE7DD00D140D1 /* Passenger.swift in Sources */,
 				8129098921BFE70300D140D1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
