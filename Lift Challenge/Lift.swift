@@ -12,6 +12,7 @@ class Lift {
     private var currentFloor: Int = 1
     private var passengers = [Passenger]()
     
+    var id: Int = 0
     var maxPassengers: Int = 0
     var maxWeight: Int = 0
     var floors: Int = 0
@@ -20,7 +21,7 @@ class Lift {
     // MARK: Boarding
     func openDoorsForBoarding() {
         numberOfTicks += 1
-        print("Tick: \(numberOfTicks) - Loading at floor \(currentFloor)")
+        print("Lift: \(id) - Tick: \(numberOfTicks) - Loading at floor \(currentFloor)")
     }
     
     func canPassengerBoardLift(passenger: Passenger) -> Bool {
@@ -45,9 +46,9 @@ class Lift {
     // MARK: Running
     func runLift() {
         while passengers.count > 0
-         && currentFloor < floors {
-            goUpAFloor()
-            unloadLift()
+            && currentFloor < floors {
+                goUpAFloor()
+                unloadLift()
         }
         
         while currentFloor > 1 {
@@ -58,14 +59,14 @@ class Lift {
         if passengers.count > 0 {
             passengers.removeAll()
             numberOfTicks += 1
-            print("Tick: \(numberOfTicks) - Unloading at \(currentFloor)")
+            print("Lift: \(id) - Tick: \(numberOfTicks) - Unloading at \(currentFloor)")
         }
     }
     
     private func goUpAFloor() {
         currentFloor += 1
         numberOfTicks += 1
-        print("Tick: \(numberOfTicks) - Moving to floor \(currentFloor)")
+        print("Lift: \(id) - Tick: \(numberOfTicks) - Moving to floor \(currentFloor)")
     }
     
     private func unloadLift() {
@@ -74,7 +75,7 @@ class Lift {
             passengers = passengers.filter() { $0.destinationFloor != currentFloor }
             if passengers.count < startingPassengerCount {
                 numberOfTicks += 1
-                print("Tick: \(numberOfTicks) - Unloading at \(currentFloor)")
+                print("Lift: \(id) - Tick: \(numberOfTicks) - Unloading at \(currentFloor)")
             }
         }
     }
@@ -83,11 +84,11 @@ class Lift {
         currentFloor -= 1
         numberOfTicks += 1
         
-        print("Tick: \(numberOfTicks) - Moving to floor \(currentFloor)")
+        print("Lift: \(id) - Tick: \(numberOfTicks) - Moving to floor \(currentFloor)")
     }
     
     func completed() {
         numberOfTicks += 1
-        print("Tick: \(numberOfTicks) - Completed")
+        print("Lift: \(id) - Tick: \(numberOfTicks) - Completed")
     }
 }

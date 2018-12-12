@@ -10,15 +10,21 @@ import Foundation
 
 class LiftSimulator {
     
-    var lift = Lift()
+    var lifts = [Lift]()
     
     func calculateLiftTicks(passengerWeights: [Int],
                             passengerDestinationFloors: [Int],
                             floors: Int,
                             maxPassengersPerLift: Int,
-                            maxWeightPerLift: Int) -> Int{
+                            maxWeightPerLift: Int,
+                            numberOfLifts: Int) -> Int{
         
-        if passengerWeights.count == passengerDestinationFloors.count {
+        lifts.removeAll()
+        var totalNumberOfTicks = 0
+        
+        if passengerWeights.count == passengerDestinationFloors.count
+            && passengerWeights.count > 0
+            && numberOfLifts > 0 {
             
             var passengers = [Passenger]()
             for i in 0..<passengerWeights.count {
@@ -30,36 +36,54 @@ class LiftSimulator {
                 }
             }
             
-            lift.maxPassengers = maxPassengersPerLift
-            lift.maxWeight = maxWeightPerLift
-            lift.floors = floors
+            for i in 0..<numberOfLifts {
+                let lift = Lift()
+                lift.id = i
+                lift.maxPassengers = maxPassengersPerLift
+                lift.maxWeight = maxWeightPerLift
+                lift.floors = floors
+                lifts.append(lift)
+            }
             
-            if passengers.count > 0 {
-                while passengers.count > 0 {
-                    var passengersCurrentlyInTransit = [Passenger]()
-                    
+            while passengers.count > 0 {
+                var passengersCurrentlyInTransit = [Passenger]()
+                
+                for lift in lifts {
                     lift.openDoorsForBoarding()
-                    
-                    for passenger in passengers {
+                }
+                
+                for passenger in passengers {
+                    for lift in lifts {
                         if lift.canPassengerBoardLift(passenger: passenger) {
                             passengersCurrentlyInTransit.append(passenger)
-                        } else {
                             break;
                         }
                     }
-                    
-                    lift.runLift()
-                    
-                    passengers = passengers.filter() { $0.enteredLift == false }
                 }
+                
+                for lift in lifts {
+                    lift.runLift()
+                }
+                
+                passengers = passengers.filter() { $0.enteredLift == false }
+                // NC: What about a check here for people that never fit?
+            }
+            
+            for lift in lifts {
                 lift.completed()
             }
             
         } else {
-            print("ERROR: Passenger Weight and Destination arrays must be the same length")
+            print("ERROR: Bad Inputs")
         }
         
-        return lift.numberOfTicks
+        for lift in lifts {
+            if lift.numberOfTicks > totalNumberOfTicks {
+                totalNumberOfTicks = lift.numberOfTicks
+            }
+        }
+        
+        return totalNumberOfTicks
     }
     
 }
