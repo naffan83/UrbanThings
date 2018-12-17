@@ -11,20 +11,22 @@ import Foundation
 class LiftSimulator {
     
     var lifts = [Lift]()
+    //var expressLifts = [ExpressLift]()
     
     func calculateLiftTicks(passengerWeights: [Int],
                             passengerDestinationFloors: [Int],
                             floors: Int,
                             maxPassengersPerLift: Int,
                             maxWeightPerLift: Int,
-                            numberOfLifts: Int) -> Int{
+                            numberOfNormalLifts: Int,
+                            numberOfExpressLifts: Int) -> Int{
         
         lifts.removeAll()
         var totalNumberOfTicks = 0
         
         if passengerWeights.count == passengerDestinationFloors.count
             && passengerWeights.count > 0
-            && numberOfLifts > 0 {
+            && numberOfNormalLifts > 0 {
             
             var passengers = [Passenger]()
             for i in 0..<passengerWeights.count {
@@ -36,13 +38,22 @@ class LiftSimulator {
                 }
             }
             
-            for i in 0..<numberOfLifts {
+            for i in 0..<numberOfNormalLifts {
                 let lift = Lift()
                 lift.id = i
+                lifts.append(lift)
+            }
+            
+            for i in 0..<numberOfExpressLifts {
+                let expressLift = ExpressLift()
+                expressLift.id = i + numberOfNormalLifts
+                lifts.append(expressLift)
+            }
+            
+            for lift in lifts {
                 lift.maxPassengers = maxPassengersPerLift
                 lift.maxWeight = maxWeightPerLift
                 lift.floors = floors
-                lifts.append(lift)
             }
             
             while passengers.count > 0 {
@@ -52,13 +63,24 @@ class LiftSimulator {
                     lift.openDoorsForBoarding()
                 }
                 
+                // NC: Is this messy?
                 for passenger in passengers {
                     for lift in lifts {
-                        if lift.canPassengerBoardLift(passenger: passenger) {
-                            passengersCurrentlyInTransit.append(passenger)
-                            break;
+                        if let expressLift = lift as? ExpressLift {
+                            if passenger.destinationFloor % 2 == 0 {
+                                if expressLift.canPassengerBoardLift(passenger: passenger) {
+                                    passengersCurrentlyInTransit.append(passenger)
+                                    break;
+                                }
+                            }
+                        } else if passenger.destinationFloor % 2 == 1 {
+                            if lift.canPassengerBoardLift(passenger: passenger) {
+                                passengersCurrentlyInTransit.append(passenger)
+                                break;
+                            }
                         }
                     }
+                    
                 }
                 
                 for lift in lifts {
@@ -66,7 +88,7 @@ class LiftSimulator {
                 }
                 
                 passengers = passengers.filter() { $0.enteredLift == false }
-                // NC: What about a check here for people that never fit?
+                // NC: What about a check here for people that never fit? - else eternal While loopage! - A check for people AND no activity this pass?
             }
             
             for lift in lifts {

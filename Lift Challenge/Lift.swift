@@ -9,8 +9,9 @@
 import Foundation
 
 class Lift {
-    private var currentFloor: Int = 1
+    internal var currentFloor: Int = 1
     private var passengers = [Passenger]()
+    internal var floorsToMoveInOneTick = 1
     
     var id: Int = 0
     var maxPassengers: Int = 0
@@ -63,8 +64,8 @@ class Lift {
         }
     }
     
-    private func goUpAFloor() {
-        currentFloor += 1
+    internal func goUpAFloor() {
+        currentFloor += floorsToMoveInOneTick
         numberOfTicks += 1
         print("Lift: \(id) - Tick: \(numberOfTicks) - Moving to floor \(currentFloor)")
     }
@@ -80,8 +81,8 @@ class Lift {
         }
     }
     
-    private func goDownAFloor() {
-        currentFloor -= 1
+    internal func goDownAFloor() {
+        currentFloor -= floorsToMoveInOneTick
         numberOfTicks += 1
         
         print("Lift: \(id) - Tick: \(numberOfTicks) - Moving to floor \(currentFloor)")

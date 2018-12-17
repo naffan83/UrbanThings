@@ -16,6 +16,7 @@
 		812909A921BFE7D200D140D1 /* Lift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812909A821BFE7D200D140D1 /* Lift.swift */; };
 		812909AB21BFE7DD00D140D1 /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812909AA21BFE7DD00D140D1 /* Passenger.swift */; };
 		812909AD21BFE8A200D140D1 /* LiftSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812909AC21BFE8A200D140D1 /* LiftSimulator.swift */; };
+		81B0052F21C15FF700DEE9AE /* ExpressLift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B0052E21C15FF700DEE9AE /* ExpressLift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		812909A821BFE7D200D140D1 /* Lift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lift.swift; sourceTree = "<group>"; };
 		812909AA21BFE7DD00D140D1 /* Passenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passenger.swift; sourceTree = "<group>"; };
 		812909AC21BFE8A200D140D1 /* LiftSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftSimulator.swift; sourceTree = "<group>"; };
+		81B0052E21C15FF700DEE9AE /* ExpressLift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressLift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				8129099421BFE70500D140D1 /* Info.plist */,
 				812909AC21BFE8A200D140D1 /* LiftSimulator.swift */,
 				812909A821BFE7D200D140D1 /* Lift.swift */,
+				81B0052E21C15FF700DEE9AE /* ExpressLift.swift */,
 				812909AA21BFE7DD00D140D1 /* Passenger.swift */,
 			);
 			path = "Lift Challenge";
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				812909AD21BFE8A200D140D1 /* LiftSimulator.swift in Sources */,
+				81B0052F21C15FF700DEE9AE /* ExpressLift.swift in Sources */,
 				812909A921BFE7D200D140D1 /* Lift.swift in Sources */,
 				8129098B21BFE70300D140D1 /* ViewController.swift in Sources */,
 				812909AB21BFE7DD00D140D1 /* Passenger.swift in Sources */,
