@@ -54,7 +54,7 @@ class Lift_ChallengeTests: XCTestCase {
         
         print("Total Number Of Ticks: \(numberOfTicks)")
         
-        XCTAssert(numberOfTicks == 0)
+        XCTAssert(numberOfTicks == 1)
     }
     
     func testLiftSimulator_1passenger_1heavyPassenger_1lifts() {
