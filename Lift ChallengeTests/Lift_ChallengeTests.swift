@@ -14,9 +14,9 @@ class Lift_ChallengeTests: XCTestCase {
     let liftSimulator = LiftSimulator()
     
     // MARK: Successful Simulations
-    func testLiftSimulator_1passenger_1lift() {
+    func testLiftSimulator_1passenger() {
         let numberOfTicks =
-            liftSimulator.calculateLiftTicks(passengerWeights: [60,],
+            liftSimulator.calculateLiftTicks(passengerWeights: [60],
                                              passengerDestinationFloors: [5],
                                              floors: 5,
                                              maxPassengersPerLift: 2,
@@ -27,7 +27,7 @@ class Lift_ChallengeTests: XCTestCase {
         XCTAssert(numberOfTicks == 11)
     }
 
-    func testLiftSimulator_3passengers_2lifts() {
+    func testLiftSimulator_3passengers() {
         let numberOfTicks =
             liftSimulator.calculateLiftTicks(passengerWeights: [60, 80, 40],
                                              passengerDestinationFloors: [2, 3, 2],
@@ -41,7 +41,7 @@ class Lift_ChallengeTests: XCTestCase {
     }
     
     // Error Testing
-    func testLiftSimulator_1farTooHeavyPassenger_2lifts() {
+    func testLiftSimulator_1farTooHeavyPassenger() {
         let numberOfTicks =
             liftSimulator.calculateLiftTicks(passengerWeights: [300],
                                              passengerDestinationFloors: [5],
@@ -54,7 +54,7 @@ class Lift_ChallengeTests: XCTestCase {
         XCTAssert(numberOfTicks == 0)
     }
     
-    func testLiftSimulator_1passenger_1heavyPassenger_1lifts() {
+    func testLiftSimulator_1passenger_1heavyPassenger() {
         let numberOfTicks =
             liftSimulator.calculateLiftTicks(passengerWeights: [60, 300],
                                              passengerDestinationFloors: [4, 5],
