@@ -10,20 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let liftSimulator = LiftSimulator()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let numberOfTicks =
-            liftSimulator.calculateLiftTicks(passengerWeights: [60, 80, 40],
-                                             passengerDestinationFloors: [2, 3, 2],
-                                             floors: 5,
-                                             maxPassengersPerLift: 2,
-                                             maxWeightPerLift: 200,
-                                             numberOfLifts: 3)
-        
-        print("Total Number Of Ticks: \(numberOfTicks)")
     }
 }
 

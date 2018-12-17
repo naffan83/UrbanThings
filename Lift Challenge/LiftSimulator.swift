@@ -28,7 +28,8 @@ class LiftSimulator {
             
             var passengers = [Passenger]()
             for i in 0..<passengerWeights.count {
-                if (passengerDestinationFloors[i] <= floors) {
+                if (passengerWeights[i] <= maxWeightPerLift
+                    && passengerDestinationFloors[i] <= floors) {
                     let passenger = Passenger()
                     passenger.weight = passengerWeights[i]
                     passenger.destinationFloor = passengerDestinationFloors[i]

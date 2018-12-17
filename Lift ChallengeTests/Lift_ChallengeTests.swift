@@ -11,24 +11,64 @@ import XCTest
 
 class Lift_ChallengeTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    let liftSimulator = LiftSimulator()
+    
+    // MARK: Successful Simulations
+    func testLiftSimulator_1passenger_1lift() {
+        let numberOfTicks =
+            liftSimulator.calculateLiftTicks(passengerWeights: [60,],
+                                             passengerDestinationFloors: [5],
+                                             floors: 5,
+                                             maxPassengersPerLift: 2,
+                                             maxWeightPerLift: 200,
+                                             numberOfLifts: 1)
+        
+        print("Total Number Of Ticks: \(numberOfTicks)")
+        
+        XCTAssert(numberOfTicks == 11)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testLiftSimulator_3passengers_2lifts() {
+        let numberOfTicks =
+            liftSimulator.calculateLiftTicks(passengerWeights: [60, 80, 40],
+                                             passengerDestinationFloors: [2, 3, 2],
+                                             floors: 5,
+                                             maxPassengersPerLift: 2,
+                                             maxWeightPerLift: 200,
+                                             numberOfLifts: 2)
+        
+        print("Total Number Of Ticks: \(numberOfTicks)")
+        
+        XCTAssert(numberOfTicks == 8)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    // Error Testing
+    func testLiftSimulator_1farTooHeavyPassenger_2lifts() {
+        let numberOfTicks =
+            liftSimulator.calculateLiftTicks(passengerWeights: [300],
+                                             passengerDestinationFloors: [5],
+                                             floors: 5,
+                                             maxPassengersPerLift: 2,
+                                             maxWeightPerLift: 200,
+                                             numberOfLifts: 2)
+        
+        print("Total Number Of Ticks: \(numberOfTicks)")
+        
+        XCTAssert(numberOfTicks == 0)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testLiftSimulator_1passenger_1heavyPassenger_1lifts() {
+        let numberOfTicks =
+            liftSimulator.calculateLiftTicks(passengerWeights: [60, 300],
+                                             passengerDestinationFloors: [4, 5],
+                                             floors: 5,
+                                             maxPassengersPerLift: 2,
+                                             maxWeightPerLift: 200,
+                                             numberOfLifts: 1)
+        
+        print("Total Number Of Ticks: \(numberOfTicks)")
+        
+        XCTAssert(numberOfTicks == 9)
     }
-
+    
 }
