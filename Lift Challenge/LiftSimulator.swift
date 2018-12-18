@@ -45,7 +45,7 @@ class LiftSimulator {
                         if lift.canPassengerBoardLift(passenger: passenger) {
                             passengersCurrentlyInTransit.append(passenger)
                         } else {
-                            break;
+                            break
                         }
                     }
                     
