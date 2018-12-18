@@ -14,17 +14,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let numberOfTicks =
-            liftSimulator.calculateLiftTicks(passengerWeights: [60, 80, 40],
-                                             passengerDestinationFloors: [2, 3, 4],
-                                             floors: 5,
-                                             maxPassengersPerLift: 2,
-                                             maxWeightPerLift: 200,
-                                             numberOfNormalLifts: 1,
-                                             numberOfExpressLifts: 3)
-        
-        print("Total Number Of Ticks: \(numberOfTicks)")
     }
 }
 

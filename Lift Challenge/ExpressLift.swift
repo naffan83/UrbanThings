@@ -8,12 +8,6 @@
 
 class ExpressLift : Lift {
     
-    /*override init() {
-        super.init()
-        
-        self.floorsToMoveInOneTick = 2
-    }*/
-    
     override func goUpAFloor() {
         
         if currentFloor == 1 {
