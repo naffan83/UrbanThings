@@ -57,7 +57,7 @@ class LiftSimulator {
                     for lift in lifts {
                         if lift.canPassengerBoardLift(passenger: passenger) {
                             passengersCurrentlyInTransit.append(passenger)
-                            break;
+                            break
                         }
                     }
                 }
@@ -67,7 +67,6 @@ class LiftSimulator {
                 }
                 
                 passengers = passengers.filter() { $0.enteredLift == false }
-                // NC: What about a check here for people that never fit?
             }
             
             for lift in lifts {
